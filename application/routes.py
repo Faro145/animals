@@ -1,23 +1,25 @@
 from application import app
-import random
+import requests
 
 @app.route('/')
-@app.route('/animal', methods=['GET'])
-def get_animal(number):
+@app.route('/get/animal', methods=['GET'])
+def get_animal():
     encyclopedia = [lion, wolf, crow, elephant, mouse, snake, frog]
-    number = random.randint(0,6)
-    if number == 0:
-      return encyclopedia[0] + "roars"
-    elif number == 1:
-      return encyclopedia[1] + "howls"
-    elif number == 2:
-      return encyclopedia[2] + "caws"
-    elif number == 3:
-      return encyclopedia[3] + "trumpets"
-    elif number == 4:
-      return encyclopedia[4] + "squeaks"
-    elif number == 5:
-      return encyclopedia[5] + "hisses"
-    elif number == 6:
-      return encyclopedia[6] + "croaks"
+    response = requests.get('http://api:5000/get/number')
+    if response.text == "0":
+      return encyclopedia[0]
+    elif response.text == "1":
+      return encyclopedia[1]
+    elif response.text == "2":
+      return encyclopedia[2]
+    elif response.text == "3":
+      return encyclopedia[3]
+    elif response.text == "4":
+      return encyclopedia[4]
+    elif response.text == "5":
+      return encyclopedia[5]
+    elif response.text == "6":
+      return encyclopedia[6]
 
+@app.route('/post/animal', methods=['POST'])
+def post_animal():
