@@ -20,7 +20,7 @@ def animal():
     elif response.text == "6":
       return Response(encyclopedia[6], mimetext="text/plain")
 
-@app.route('noise', methods=['POST'])
+@app.route('/noise', methods=['POST'])
 def noise():
     animal = request.data.decode('utf-8')
     if animal == "Lion":
