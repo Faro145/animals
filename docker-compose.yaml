@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  service_one:
+    build: ./service_one
+    image: rfarq/service_one
+    deploy:
+      replicas: 5
+    ports:
+    - published: 5001
+      target: 5001
+  service_two:
+    build: ./service_two
+    image: rfarq75/service_two
+    deploy:
+      replicas: 5
+    ports: 
+    - published: 5000
+      target: 5000
+   
+    
+
