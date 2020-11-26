@@ -1,2 +1,4 @@
 flask
+flask-testing
+unittest.mock
 requests
